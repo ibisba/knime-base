@@ -1,4 +1,4 @@
-FROM ubuntu:17.10
+FROM ubuntu:18.04
 
 MAINTAINER Alexander Fillbrunn <alexander.fillbrunn@uni.kn>
 
