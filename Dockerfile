@@ -35,18 +35,6 @@ RUN pip install pandas && pip install protobuf
 # Install Rserver so KNIME can communicate with R
 RUN R -e 'install.packages(c("Rserve"), repos="http://cran.rstudio.com/")'
 
-## Set a default user. Available via runtime flag `--user knime`
-## Add user to 'staff' group, granting them write privileges to /usr/local/lib/R/site.library
-## User should also have & own a home directory (for rstudio or linked volumes to work properly).
-RUN adduser --disabled-password --quiet --gecos '' knime \
-  && chown -R root:knime $KNIME_DIR \
-  && chmod -R 775 $KNIME_DIR \
-  && mkdir -p $HOME_DIR \
-	&& chown knime:knime $HOME_DIR \
-	&& addgroup knime staff
-
-# Switch user and run KNIME
-USER knime
 ENTRYPOINT $KNIME_DIR/knime
 
 # docker run -e DISPLAY=192.168.99.1:0 -d --name knime -v /Users/Alexander/knime-workspace:/home/knime/workspace -t knime
