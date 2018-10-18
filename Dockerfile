@@ -7,9 +7,11 @@ ENV INSTALLATION_DIR /usr/local
 ENV KNIME_DIR $INSTALLATION_DIR/knime
 ENV HOME_DIR /home/knime
 
-# Install Java and WebKit
+# Install everything
+# HACK: Install tzdata at the beginning to not trigger an interactive dialog later on
 RUN apt-get update \
  && apt-get install -y software-properties-common curl \
+ && apt-get install -y tzdata \
  \
  && apt-add-repository -y ppa:webupd8team/java \
  && apt-get update \
