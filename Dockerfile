@@ -1,7 +1,5 @@
 FROM ubuntu:18.04
 
-MAINTAINER Alexander Fillbrunn <alexander.fillbrunn@uni.kn>
-
 ENV DOWNLOAD_URL https://download.knime.org/analytics-platform/linux/knime-latest36-linux.gtk.x86_64.tar.gz
 ENV INSTALLATION_DIR /usr/local
 ENV KNIME_DIR $INSTALLATION_DIR/knime
