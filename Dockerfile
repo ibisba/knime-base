@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-ENV DOWNLOAD_URL https://download.knime.org/analytics-platform/linux/knime-latest37-linux.gtk.x86_64.tar.gz
+ENV DOWNLOAD_URL https://download.knime.org/analytics-platform/linux/knime-latest40-linux.gtk.x86_64.tar.gz
 ENV INSTALLATION_DIR /usr/local
 ENV KNIME_DIR $INSTALLATION_DIR/knime
 ENV HOME_DIR /home/knime
@@ -31,5 +31,3 @@ RUN pip install pandas && pip install protobuf
 RUN R -e 'install.packages(c("Rserve"), repos="http://cran.rstudio.com/")'
 
 ENTRYPOINT $KNIME_DIR/knime
-
-# docker run -e DISPLAY=192.168.99.1:0 -d --name knime -v /Users/Alexander/knime-workspace:/home/knime/workspace -t knime
